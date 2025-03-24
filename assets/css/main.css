@@ -53,7 +53,7 @@
 }
 
 .accent-background {
-  --background-color: #434a4e;
+  --background-color: #212a30;
   --default-color: #ffffff;
   --heading-color: #ffffff;
   --surface-color: #80c792;
@@ -1247,6 +1247,12 @@ section,
 .services .service-item:hover p {
   color: color-mix(in srgb, var(--default-color), transparent 10%);
 }
+.services-img {
+  width: 100%;
+  /* max-width: 600px; */
+  height: 300px;
+  object-fit: cover;
+}
 
 /*--------------------------------------------------------------
 # Call To Action Section
@@ -1848,3 +1854,71 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
+/* FAQ Section */
+.faq.section {
+  padding: 60px 0;
+}
+
+.faq .accordion {
+  width: 100%;
+}
+
+.faq .accordion-item {
+  border: none;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.faq .accordion-button {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  background-color: #f8f9fa;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.faq .accordion-button:not(.collapsed) {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.faq .accordion-button:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.faq .accordion-body {
+  padding: 15px;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+  .faq .accordion-button {
+    font-size: 0.95rem;
+    padding: 10px 12px;
+  }
+  
+  .faq .accordion-body {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .faq .row {
+    flex-direction: column;
+  }
+  
+  .faq .col-lg-6 {
+    width: 100%;
+  }
+}
