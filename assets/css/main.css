@@ -1983,3 +1983,34 @@ section,
     font-size: 0.85rem;
   }
 }
+
+/* Form Messages */
+.php-email-form .loading, 
+.php-email-form .error-message, 
+.php-email-form .sent-message {
+  display: none;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.php-email-form .loading {
+  background: var(--surface-color);
+  text-align: center;
+}
+
+.php-email-form .error-message {
+  background: #df1529;
+  color: #ffffff;
+  text-align: left;
+}
+
+.php-email-form .sent-message {
+  color: #ffffff;
+  background: #059652;
+  text-align: center;
+}
+
+.php-email-form .d-block {
+  display: block !important;
+}

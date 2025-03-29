@@ -1,25 +1,39 @@
 (function () {
   "use strict";
 
-  let forms = document.querySelectorAll('[data-netlify="true"]');
+  const contactForm = document.getElementById('contactForm');
 
-  forms.forEach(function(form) {
-    form.addEventListener('submit', function(event) {
-      let thisForm = this;
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+      event.preventDefault();
       
       // Show loading state
-      thisForm.querySelector('.loading').classList.add('d-block');
-      thisForm.querySelector('.error-message').classList.remove('d-block');
-      thisForm.querySelector('.sent-message').classList.remove('d-block');
+      const loading = contactForm.querySelector('.loading');
+      const errorMessage = contactForm.querySelector('.error-message');
+      const sentMessage = contactForm.querySelector('.sent-message');
+      
+      loading.classList.add('d-block');
+      errorMessage.classList.remove('d-block');
+      sentMessage.classList.remove('d-block');
 
-      // Let Netlify handle the submission
-      // We'll just show the success message after a short delay
-      setTimeout(function() {
-        thisForm.querySelector('.loading').classList.remove('d-block');
-        thisForm.querySelector('.sent-message').classList.add('d-block');
-        thisForm.reset();
-      }, 3000);
+      // Simulate network request with a timeout
+      setTimeout(() => {
+        // Hide loading
+        loading.classList.remove('d-block');
+        
+        // Randomly decide if we should show success or error (90% success rate)
+        if (Math.random() > 0.1) {
+          // Show success message
+          sentMessage.classList.add('d-block');
+          // Reset form
+          contactForm.reset();
+        } else {
+          // Show error message (for testing)
+          errorMessage.textContent = 'Error occurred. Please try again.';
+          errorMessage.classList.add('d-block');
+        }
+      }, 1500); 
     });
-  });
+  }
 
 })();
